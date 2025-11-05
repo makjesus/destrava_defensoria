@@ -3,116 +3,203 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Destrava Defensoria - Contador de Morosidade em Inventários</title>
+    <meta name="description" content="Destrava Defensoria - Meu processo está parado na Defensoria Pública RJ desde 05/04/2019.">
+    <meta name="keywords" content="defensoria pública, inventário, morosidade, RJ, 05/04/2019">
+    <meta name="author" content="Destrava Defensoria">
+    <title>Destrava Defensoria - Meu Processo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        .contador { font-size: 4rem; font-weight: bold; color: #dc3545; animation: pulse 2s infinite; }
-        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
-        .protesto-lista { max-height: 300px; overflow-y: auto; }
-        .disclaimer { background: #fff3cd; border: 1px solid #ffeaa7; padding: 10px; border-radius: 5px; }
+        :root {
+            --primary: #dc3545;
+            --dark: #1a1a1a;
+            --light: #f8f9fa;
+            --warning: #ffc107;
+        }
+        body { font-family: 'Roboto', sans-serif; background: var(--light); margin: 0; padding: 0; }
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; }
+        .navbar { background: var(--dark) !important; }
+        .hero-section {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #dc3545 0%, #b02a37 100%);
+            color: white;
+            position: relative;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        .hero-content { max-width: 1000px; padding: 2rem; }
+        .data-entrada {
+            background: rgba(0,0,0,0.75);
+            padding: 1.5rem 3rem;
+            border-radius: 20px;
+            font-size: 1.6rem;
+            font-weight: bold;
+            display: inline-block;
+            margin: 2rem 0;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+            letter-spacing: 1px;
+        }
+        .contador-container {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 2rem;
+            border-radius: 20px;
+            display: inline-block;
+            margin: 2rem 0;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+        }
+        .contador {
+            font-size: 3.8rem;
+            font-weight: 900;
+            color: #fff;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.6);
+            letter-spacing: 2px;
+            margin: 0.8rem 0;
+            display: block;
+        }
+        .contador-label {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            opacity: 0.9;
+        }
+        .disclaimer {
+            background: #fff3cd;
+            border-left: 6px solid #ffc107;
+            padding: 1.8rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            max-width: 900px;
+            margin: 3rem auto;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        footer {
+            background: var(--dark);
+            color: #ccc;
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.9rem;
+        }
+        .animate { animation: fadeInUp 1.2s ease-out; }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @media (max-width: 768px) {
+            .contador { font-size: 2.5rem; }
+            .data-entrada { font-size: 1.3rem; padding: 1rem 2rem; }
+        }
     </style>
 </head>
 <body>
-    <div class="container mt-5">
-        <h1 class="text-center mb-4">🚨 Destrava Defensoria</h1>
-        <p class="text-center lead">Contador de morosidade na Defensoria Pública - RJ<br><small class="text-muted">Pressione por agilidade nos inventários! Compartilhe seu caso anônimo.</small></p>
 
-        <div class="row mb-5">
-            <div class="col-md-6 mx-auto">
-                <form id="formCadastro">
-                    <div class="mb-3">
-                        <label class="form-label">Data de Entrada do Processo (Inventário)</label>
-                        <input type="date" class="form-control" id="dataEntrada" required>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Descrição Anônima (opcional)</label>
-                        <textarea class="form-control" id="descricao" placeholder="Ex.: Inventário de herança familiar, parado há meses..."></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-danger w-100">Cadastrar e Iniciar Contador</button>
-                </form>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="bi bi-exclamation-diamond-fill me-2"></i>Destrava Defensoria
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content animate">
+            <h1 class="display-3 fw-bold mb-4">Destrava Defensoria</h1>
+            <p class="lead mb-4">Contador de morosidade na Defensoria Pública - RJ</p>
+
+            <div class="data-entrada">
+                ENTRADA DO MEU PROCESSO: <strong>05 DE ABRIL DE 2019</strong>
             </div>
-        </div>
 
-        <div id="contadorSection" class="text-center mb-5" style="display: none;">
-            <h2>Seu Contador de Morosidade</h2>
-            <div class="contador" id="contadorDias">0 dias</div>
-            <p class="fs-5">Desde a entrada na Defensoria</p>
-            <button class="btn btn-warning" onclick="compartilharProtesto()">Compartilhar Protesto no WhatsApp</button>
-        </div>
-
-        <div class="row">
-            <div class="col-md-8">
-                <h3>Protestos Coletivos</h3>
-                <div class="protesto-lista" id="listaProtestos">
-                    <p class="text-muted">Cadastre o primeiro caso...</p>
+            <!-- Contador Detalhado -->
+            <div class="contador-container">
+                <div class="row text-center">
+                    <div class="col">
+                        <div class="contador" id="anos">0</div>
+                        <div class="contador-label">ano(s)</div>
+                    </div>
+                    <div class="col">
+                        <div class="contador" id="meses">0</div>
+                        <div class="contador-label">mês(es)</div>
+                    </div>
+                    <div class="col">
+                        <div class="contador" id="dias">0</div>
+                        <div class="contador-label">dia(s)</div>
+                    </div>
+                    <div class="col">
+                        <div class="contador" id="horas">00</div>
+                        <div class="contador-label">hora(s)</div>
+                    </div>
+                    <div class="col">
+                        <div class="contador" id="minutos">00</div>
+                        <div class="contador-label">minuto(s)</div>
+                    </div>
+                    <div class="col">
+                        <div class="contador" id="segundos">00</div>
+                        <div class="contador-label">segundo(s)</div>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="disclaimer">
-                    <h5>Disclaimer</h5>
-                    <p>Esta ferramenta é para conscientização sobre morosidade em processos de inventário na Defensoria Pública. Não substitui orientação jurídica. Compartilhamentos são anônimos e públicos para visibilizar o problema coletivo.</p>
-                </div>
-            </div>
+
+            <p class="fs-4 mt-4">de atraso na Defensoria</p>
+        </div>
+    </section>
+
+    <!-- Disclaimer -->
+    <div class="container">
+        <div class="disclaimer animate">
+            <h5>Importante</h5>
+            <p>Esta ferramenta é para conscientização sobre morosidade em processos de inventário na Defensoria Pública. Não substitui orientação jurídica. O processo entrou em <strong>05/04/2019</strong> e ainda não foi finalizado.</p>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p class="mb-1">© 2025 Destrava Defensoria • Meu processo: 05/04/2019</p>
+            <p>Pressione por justiça</p>
+        </div>
+    </footer>
+
+    <!-- Script do Contador -->
     <script>
-        let processoId = null;
-        let contadorInterval = null;
+        const DATA_ENTRADA = new Date('2019-04-05T00:00:00');
 
-        document.getElementById('formCadastro').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const dataEntrada = document.getElementById('dataEntrada').value;
-            const descricao = document.getElementById('descricao').value;
+        function atualizarContador() {
+            const agora = new Date();
+            const diff = agora - DATA_ENTRADA;
 
-            const response = await fetch('/cadastrar', {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({data_entrada: dataEntrada, descricao: descricao})
-            });
+            const segundosTotal = Math.floor(diff / 1000);
+            const minutosTotal = Math.floor(segundosTotal / 60);
+            const horasTotal = Math.floor(minutosTotal / 60);
+            const diasTotal = Math.floor(horasTotal / 24);
 
-            const result = await response.json();
-            processoId = result.id;
-            document.getElementById('formCadastro').style.display = 'none';
-            document.getElementById('contadorSection').style.display = 'block';
-            carregarListaProtestos();
-            iniciarContador();
-        });
+            const anos = Math.floor(diasTotal / 365);
+            const meses = Math.floor((diasTotal % 365) / 30);
+            const dias = diasTotal % 30;
+            const horas = horasTotal % 24;
+            const minutos = minutosTotal % 60;
+            const segundos = segundosTotal % 60;
 
-        function iniciarContador() {
-            contadorInterval = setInterval(async () => {
-                if (processoId) {
-                    const response = await fetch(`/calcular_dias/${processoId}`);
-                    const data = await response.json();
-                    document.getElementById('contadorDias').innerText = data.total_formatado;
-                }
-            }, 1000);  // Atualiza a cada segundo
+            document.getElementById('anos').textContent = anos;
+            document.getElementById('meses').textContent = meses;
+            document.getElementById('dias').textContent = dias;
+            document.getElementById('horas').textContent = horas.toString().padStart(2, '0');
+            document.getElementById('minutos').textContent = minutos.toString().padStart(2, '0');
+            document.getElementById('segundos').textContent = segundos.toString().padStart(2, '0');
         }
 
-        async function carregarListaProtestos() {
-            const response = await fetch('/lista_processos');
-            const processos = await response.json();
-            const lista = document.getElementById('listaProtestos');
-            lista.innerHTML = processos.map(p => `
-                <div class="alert alert-warning">
-                    <strong>${p.dias} dias</strong> aguardando - ${p.descricao || 'Caso anônimo'}<br>
-                    <small>Entrada: ${p.data_entrada}</small>
-                </div>
-            `).join('');
-        }
+        // Atualiza a cada segundo
+        setInterval(atualizarContador, 1000);
 
-        function compartilharProtesto() {
-            if (processoId) {
-                const response = await fetch(`/calcular_dias/${processoId}`);
-                const data = await response.json();
-                const mensagem = `Meu inventário na Defensoria RJ está parado há ${data.total_formatado}! #DestravaDefensoria - Ajude a pressionar por agilidade! https://destrava-defensoria.onrender.com`;
-                window.open(`https://wa.me/?text=${encodeURIComponent(mensagem)}`, '_blank');
-            }
-        }
-
-        // Carrega lista inicial
-        carregarListaProtestos();
+        // Inicia imediatamente
+        window.onload = () => {
+            atualizarContador();
+        };
     </script>
 </body>
 </html>
